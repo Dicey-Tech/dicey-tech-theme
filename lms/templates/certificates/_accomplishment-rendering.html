@@ -1,0 +1,178 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='../static_content.html'/>
+<%
+course_mode_class = course_mode if course_mode else ''
+%>
+
+<style>
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, "Quicksand",sans-serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    }
+
+    .accomplishment-statement {
+        border-bottom: none !important;
+    }
+
+    .bg-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: unset;
+    }
+
+    .bg-decoration__svg {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 134%;
+        height: auto;
+    }
+
+    .gradient-box{
+        background-image: linear-gradient(to bottom right, #0f7087,#d9167e, #440641);
+    }
+
+    .inner-box {
+        background: #fff;
+        padding: 2rem;
+        width: 100%;
+    }
+
+    .top-logo {
+        width: 15%;
+    }
+</style>
+
+<main class="accomplishment accomplishment-main">
+
+    <div class="wrapper-accomplishment-rendering">
+        
+        <div class="accomplishment-rendering gradient-box">
+            <span class="deco-corner deco-corner-tl"></span>
+            <span class="deco-corner deco-corner-tr"></span>
+            <span class="deco-corner deco-corner-bl"></span>
+            <span class="deco-corner deco-corner-br"></span>
+            
+            <div class="inner-box">
+                       
+                <figure class="bg-decoration z-index-1" aria-hidden="true">
+                    <svg class="bg-decoration__svg color-contrast-low" viewBox="0 0 1920 450" fill="none">
+                        <circle class="blend-overlay" opacity="0.5" cx="1745" cy="159" r="175" fill="url(#bg-decoration-v1-fx-4-radial-1)" />
+                        <circle opacity="0.5" r="65" transform="matrix(-1 0 0 1 240 110)" fill="url(#bg-decoration-v1-fx-4-radial-2)" />
+                        <g opacity="0.5" filter="url(#bg-decoration-v1-fx-4-filter-1)">
+                            <circle r="26" transform="matrix(-1 0 0 1 298 386)" fill="#d9167e" />
+                        </g>
+                        <circle class="blend-overlay" opacity="0.5" cx="1470" cy="-299" r="439" fill="url(#bg-decoration-v1-fx-4-radial-3)" />
+                        <defs>
+                            <filter id="bg-decoration-v1-fx-4-filter-1" x="267" y="355" width="62" height="62" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                                <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur" />
+                            </filter>
+                            <radialGradient id="bg-decoration-v1-fx-4-radial-1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(1745 159) rotate(90) scale(175)">
+                                <stop stop-color="#d9167e" stop-opacity="0" />
+                                <stop offset="1" stop-color="#d9167e" />
+                            </radialGradient>
+                            <radialGradient id="bg-decoration-v1-fx-4-radial-2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="scale(65)">
+                                <stop stop-color="#0f7087" stop-opacity="0"/>
+                                <stop offset="1" stop-color="#0f7087"/>
+                            </radialGradient>
+                            <radialGradient id="bg-decoration-v1-fx-4-radial-3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(1470 -299) rotate(90) scale(439)">
+                                <stop stop-color="#0f7087" stop-opacity="0" />
+                                <stop offset="1" stop-color="#0f7087" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </figure>
+
+                % if organization_logo:
+                <div class="organization">
+                    <img class="organization-logo top-logo" src="${organization_logo.url}" alt="${platform_name}">
+                </div>
+                % endif
+
+                <div class="accomplishment-type">
+                    
+
+                    <span class="accomplishment-type-symbol">
+                        <img class="src" src="/static/certificates/images/ico-${course_mode_class}.png" alt="Image for course mode of type ${course_mode_class}">
+                    </span>
+    
+                    <span class="accomplishment-type-label hd-3">${document_title}</span>
+                </div>
+
+                <div class="wrapper-statement-and-signatories">
+                    <div class="accomplishment-statement">
+                        <p class="accomplishment-statement-lead">
+                            <!--span class="accomplishment-summary copy copy-lead">${accomplishment_copy_description_full}</span-->
+                            <span class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_description_full}</span>
+                            <strong class="accomplishment-recipient hd-1 emphasized">${accomplishment_copy_name}</strong>
+                            
+                            <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_org}</p>
+                            <span class="accomplishment-course hd-1 emphasized">
+                                <!-- span class="accomplishment-course-org">${accomplishment_copy_course_org}  </span>
+                                < span class="accomplishment-course-number">${course_number}</span>: -->
+                                <span class="accomplishment-course-name">${accomplishment_copy_course_name}</span>
+                            </span>
+                        </p>
+    
+                        <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_description}</p>
+                    </div>
+
+                </div>
+    
+                <!--div class="accomplishment-orgs">
+                    <h3 class="accomplishment-orgs-title sr-only">${_("Supported by the following organizations")}</h3>
+    
+                    <ul class="wrapper-orgs list-orgs">
+                        <li class="wrapper-organization">
+                            <div class="organization organization-edX">
+                                <img class="organization-logo" src="${logo_src}" alt="${platform_name}">
+                            </div>
+                        </li>
+                    </ul>
+                </div-->
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="wrapper-accomplishment-metadata">
+        <div class="accomplishment-metadata">
+            <h2 class="accomplishment-metadata-title hd-6">${accomplishment_copy_more_about}</h2>
+
+            <div class="wrapper-metadata">
+                <dl class="metadata accomplishment-recipient">
+                    <dt class="label sr-only">${_("Awarded to:")}</dt>
+                    <dd class="value copy copy-meta">
+                        <span class="recipient-img">
+                            <img class="src" src="/static/certificates/images/demo-user-profile.png" alt="Recipient Image">
+                        </span>
+                        <div class="recipient-details">
+                            <h3 class="recipient-name">${accomplishment_copy_name}</h3>
+                            <p class="recipient-username">${accomplishment_copy_username} @ ${platform_name}</p>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="metadata accomplishment-id">
+                    <dt class="label copy copy-meta">${certificate_id_number_title}:</dt>
+                    <dd class="value copy copy-base">${certificate_id_number}</dd>
+                </dl>
+                <dl class="metadata accomplishment-date">
+                    <dt class="label copy copy-meta">${certificate_date_issued_title}</dt>
+                    <dd class="value copy copy-base">${certificate_date_issued}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</main>
