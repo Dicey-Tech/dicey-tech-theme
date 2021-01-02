@@ -5,13 +5,29 @@
 course_mode_class = course_mode if course_mode else ''
 %>
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
     * {
         font-family: -apple-system, BlinkMacSystemFont, "Quicksand",sans-serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
     }
+    
+    .accomplishment-course-name {
+        font-family: 'Baloo 2', cursive !important;
+    }
+
+    .accomplishment-recipient {
+        font-family: 'Baloo 2', cursive !important;
+    }
 
     .accomplishment-statement {
         border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .accomplishment-type-label {
+        font-family: 'Baloo 2', cursive !important;
     }
 
     .bg-decoration {
@@ -38,6 +54,16 @@ course_mode_class = course_mode if course_mode else ''
         background-image: linear-gradient(to bottom right, #0f7087,#d9167e, #440641);
     }
 
+    .hd-1 {
+        color: #440641;
+        font-size: 3.375rem;
+    }
+
+    .hd-3 {
+        color: #440641 !important;
+        font-size: 2.5rem;
+    }
+
     .inner-box {
         background: #fff;
         padding: 2rem;
@@ -46,6 +72,8 @@ course_mode_class = course_mode if course_mode else ''
 
     .top-logo {
         width: 15%;
+        float: left;
+        clear: both;        
     }
 </style>
 
@@ -94,38 +122,36 @@ course_mode_class = course_mode if course_mode else ''
                     </svg>
                 </figure>
 
-                % if organization_logo:
-                <div class="organization">
-                    <img class="organization-logo top-logo" src="${organization_logo.url}" alt="${platform_name}">
-                </div>
-                % endif
-
-                <div class="accomplishment-type">
-                    
+                <div class="accomplishment-type" style="margin-bottom: 10rem;">
+                    % if organization_logo:
+                    <div class="organization">
+                        <img class="organization-logo top-logo" src="${organization_logo.url}" alt="${platform_name}">
+                    </div>
+                    % endif
 
                     <span class="accomplishment-type-symbol">
                         <img class="src" src="/static/certificates/images/ico-${course_mode_class}.png" alt="Image for course mode of type ${course_mode_class}">
                     </span>
     
-                    <span class="accomplishment-type-label hd-3">${document_title}</span>
+                    <span class="accomplishment-type-label hd-3" >${document_title}</span>
                 </div>
 
                 <div class="wrapper-statement-and-signatories">
-                    <div class="accomplishment-statement">
+                    <div class="accomplishment-statement" >
                         <p class="accomplishment-statement-lead">
                             <!--span class="accomplishment-summary copy copy-lead">${accomplishment_copy_description_full}</span-->
-                            <span class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_description_full}</span>
+                            <span class="accomplishment-statement-detail copy copy-lead" style="clear: both;">${accomplishment_copy_description_full}</span>
                             <strong class="accomplishment-recipient hd-1 emphasized">${accomplishment_copy_name}</strong>
                             
-                            <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_org}</p>
+                            <p class="accomplishment-statement-detail copy copy-lead" style="margin-bottom: 0;">${accomplishment_copy_course_org}</p>
                             <span class="accomplishment-course hd-1 emphasized">
                                 <!-- span class="accomplishment-course-org">${accomplishment_copy_course_org}  </span>
                                 < span class="accomplishment-course-number">${course_number}</span>: -->
                                 <span class="accomplishment-course-name">${accomplishment_copy_course_name}</span>
                             </span>
                         </p>
-    
-                        <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_description}</p>
+                        
+                        <p class="accomplishment-statement-detail copy copy-lead" style="margin-top: 10rem; margin-bottom: 0;">${accomplishment_copy_course_description}</p>
                     </div>
 
                 </div>
