@@ -1,3 +1,8 @@
+// TODO Separate into different with self-explanatory names
+
+@import "header";
+@import "dashboard";
+
 .content-wrapper {
   margin: auto;
 }
@@ -14,22 +19,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  color: $very_dark_magenta;
+  //color: $very_dark_magenta;
   font-family: inherit;
-}
-
-.global-header {
-  border-bottom: 0px solid $vivid_cerise;
-  box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.1);
-
-  .course-search {
-    margin: 20px 0 0 0px;
-
-    .search-button {
-      color: $secondary;
-      background: $primary;
-    }
-  }
 }
 
 .home > header {
@@ -206,65 +197,6 @@ h6,
   }
 }
 
-.global-header {
-  display: flex !important;
-  width: 100%;
-
-  .header-logo {
-    margin-bottom: 0;
-  }
-
-  .main-header {
-    display: flex;
-    width: 100%;
-
-    margin-bottom: 1rem;
-    .nav-links {
-      display: flex;
-      width: 100%;
-      justify-content: flex-end;
-
-      .main {
-        display: flex;
-        flex: 1;
-
-        a {
-          font-weight: 700;
-          &:hover,
-          &:focus,
-          &:active {
-            color: $usc_gold;
-            border-bottom: 2px solid $secondary;
-          }
-        }
-      }
-    }
-  }
-
-  .nav-links .main .nav-tab a {
-    @media (min-width: 992px) {
-      font-weight: 700;
-      &:hover,
-      &:focus,
-      &:active {
-        color: $usc_gold;
-        border-bottom: 2px solid $secondary;
-      }
-    }
-  }
-
-  .header-logo {
-    display: flex;
-  }
-}
-
-.global-header .nav-links .secondary {
-  @media (min-width: 992px) {
-    float: right;
-    margin: 15px 40px 0 0;
-  }
-}
-
 /*Vertical Sliding*/
 .slidingVertical {
   vertical-align: top;
@@ -418,25 +350,3 @@ h6,
 //margin: 20px 2px 0 20px !important;
 //}
 // mobile-css
-
-.global-header {
-  @media (max-width: 991px) {
-    display: block;
-  }
-  .hamburger-menu {
-    left: auto;
-    right: 20px;
-  }
-}
-
-.dashboard .main-container .my-courses .course .details .enter-course {
-  background-color: $vivid_cerise;
-  border: none;
-  color: $white;
-
-  &:hover {
-    background-color: $usc_gold;
-    border: none;
-    color: $vivid_cerise;
-  }
-}

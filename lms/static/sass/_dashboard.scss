@@ -1,0 +1,11 @@
+.dashboard .main-container .my-courses .course .details .enter-course {
+  background-color: $vivid_cerise;
+  border: none;
+  color: $white;
+
+  &:hover {
+    background-color: $usc_gold;
+    border: none;
+    color: $vivid_cerise;
+  }
+}
