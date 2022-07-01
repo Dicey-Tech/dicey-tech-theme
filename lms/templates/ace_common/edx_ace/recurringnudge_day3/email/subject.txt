@@ -1,0 +1,8 @@
+{% autoescape off %}
+{% load i18n %}
+{% if course_ids|length > 1 %}
+{% blocktrans %}Boost your skills{% endblocktrans %}
+{% else %}
+{% blocktrans %}Boost your skills{% endblocktrans %}
+{% endif %}
+{% endautoescape %}

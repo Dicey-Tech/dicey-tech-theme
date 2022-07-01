@@ -62,7 +62,7 @@
                     <tr>
                         <td width="250"  align="center">
                             <a href="{% with_link_tracking homepage_url %}"><img
-                                    src="https://raw.githubusercontent.com/Dicey-Tech/brand-diceytech/master/logo-trademark.svg" width="auto"
+                                    src="https://raw.githubusercontent.com/Dicey-Tech/brand-diceytech/master/logo-trademark.png" width="auto"
                                     height="90" alt="{% filter force_escape %}{% blocktrans %}Go to {{ platform_name }} Home Page{% endblocktrans %}{% endfilter %}"/></a>
                         </td>
                     </tr>
@@ -169,9 +169,6 @@
                         <!-- COPYRIGHT -->
                         <td>
                             &copy; {% now "Y" %} {{ platform_name }}, {% trans "All rights reserved" as tmsg %}{{ tmsg | force_escape }}.<br/>
-                            <br/>
-                            {% trans "Our mailing address is" as tmsg %}{{ tmsg | force_escape }}:<br/>
-                            {{ contact_mailing_address }}
                         </td>
                     </tr>
                 </table>
